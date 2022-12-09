@@ -1,11 +1,25 @@
 import React from 'react'
+import data from './data'
+import Card from './Cards'
+
+let cards = []
+for(let i=0; i<data.length; i++) {
+  cards.push(
+    <Card
+        img={data[i].coverImg}
+        rating={data[i].stats.rating}
+        reviewCount={data[i].stats.reviewCount}
+        location={data[i].location}
+        title={data[i].title}
+        price={data[i].price}
+    />
+  )
+}
 
 function Main() {
   return (
-    <div className='main container'>
-        <img className='photo-grid' src= {require("./images/photo-grid.png")} alt='phtot-grid'/>
-        <h2 className='display'>Online Experiences</h2>
-        <p>Join unique interactive activities led <br></br>by one-of-a-kind hosts-all without leaving home</p>
+    <div className="main">
+      {cards}
     </div>
   )
 }
